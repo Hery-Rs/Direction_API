@@ -12,15 +12,25 @@
     <title>Directions API</title>
 </head>
 <body>
-<h1>Calculate Directions</h1>
+    <h1>Calculate Directions</h1>
 
-<input id="origin-input" class="controls" type="text"
-       placeholder="Enter an origin location">
+    <h3>Place 1</h3>
 
-<input id="destination-input" class="controls" type="text"
-       placeholder="Enter a destination location">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Origin</span>
+        </div>
+        <input id="origin-input" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Enter an origin location">
+    </div>
 
-<div id="map"></div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Destination</span>
+        </div>
+        <input id="destination-input" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Enter a destination location">
+    </div>
+
+    <div id="map"></div>
 
 
 <!-- Optional JavaScript -->
@@ -64,9 +74,6 @@
 
         this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
         this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
     }
 
     AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
