@@ -68,6 +68,7 @@ AutocompleteDirectionsHandler.prototype.route = function() {
     }, function(response, status) {
         if (status === 'OK') {
             me.directionsDisplay.setDirections(response);
+            // Distance and time //////////////////////////////////////////////
             me.distanceService.getDistanceMatrix({
                 origins: [{'placeId': me.originPlaceId}],
                 destinations: [{'placeId': me.destinationPlaceId}],
@@ -97,6 +98,7 @@ AutocompleteDirectionsHandler.prototype.route = function() {
                     }
                 }
             });
+            // Distance and time ////////////////////////////////////////////// END
         } else {
             window.alert('Directions request failed due to ' + status);
         }
